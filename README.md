@@ -86,3 +86,20 @@ business and not the report's.
 `launchpad-render/` is gitignored here so a local render is never committed —
 a release that already contains a directory of that name fails the deploy by
 name, since it is the one directory the platform writes into.
+
+## The house style
+
+The look is the [Launchpad Example Kit](https://github.com/gopanair/launchpad-example-kit) —
+`static/launchpad-kit.css`, byte-identical in every example in the gallery, with
+`static/nb.css` as the layer between it and nbconvert's `lab` template. The
+first cell is two lines and an import; `chrome.py` is where the detail lives.
+
+That split is deliberate. **nbconvert's `lab` template shows every cell's
+source**, and Launchpad runs that template on purpose: it is what *File → Export
+as HTML* produces, so the deployed page matches the one the author already looked
+at. A notebook app shows its working — so eighty lines of CSS at the top of the
+document would be the first thing anybody read, and the right response is to make
+the code pleasant rather than to fight the template.
+
+The chart palette is the kit's five series, copied into `PALETTE`, because
+matplotlib cannot read a stylesheet.
